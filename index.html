@@ -16,6 +16,8 @@
 
     <!-- Custom CSS -->
     <link href="css/agency.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/full-slider.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -23,8 +25,11 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-	
-	
+
+    <!-- datepicker css -->
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,10 +75,10 @@
                     <li>
                         <a class="page-scroll" href="#contact">Reservaciones</a>
                     </li>
-					<li>
-                      <audio controls autoplay="autoplay">
-                          <source src="music/Up&Up.m4a" type="audio/mpeg">
-                      </audio>
+                    <li>
+                        <audio controls autoplay="autoplay" loop="true">
+                            <source src="music/Up&Up.m4a" type="audio/mpeg">
+                        </audio>
                     </li>
                 </ul>
             </div>
@@ -83,14 +88,50 @@
     </nav>
 
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Vive una experiencia de viaje inolvidable</div>
-                <div class="intro-heading">¡Somos Wanderlust!</div>
-                <a href="#services" class="page-scroll btn btn-xl">Conócenos</a>
+    <header id="myCarousel" class="carousel slide">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('img/header-bg.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Vive una experiencia de viaje inolvidable</h2>
+                    <a href="#services" class="page-scroll btn btn-xl">Conócenos</a>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('img/slide1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>¡Somos Wanderlust!</h2>
+                    <a href="#services" class="page-scroll btn btn-xl">Conócenos</a>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('img/slide2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Conócenos</h2>
+                    <a href="#services" class="page-scroll btn btn-xl">Conócenos</a>
+                </div>
             </div>
         </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
     </header>
 
     <!-- Services Section -->
@@ -225,6 +266,65 @@
                         <p class="text-muted">Nuestra Insignia</p>
                     </div>
                 </div>
+
+                <script src="http://maps.googleapis.com/maps/api/js">
+                </script>
+
+                <script>
+                    function initialize() {
+                        var mapProp = {
+                            center: new google.maps.LatLng(20.741689, -99.380907),
+                            zoom: 10,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                    }
+                    google.maps.event.addDomListener(window, 'load', initialize);
+                </script>
+
+
+                <div class="col-md-4 col-sm-6 portfolio-item">
+
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FZimapanAlNatural%2F&tabs=timeline&width=360&height=250&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="360" height="250"
+                        style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                    <div class="portfolio-caption">
+                        <h4>Dános like en Facebook</h4>
+                        <p class="text-muted">Y entérate de todo!</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="portfolio-caption">
+                        <div id="googleMap" style="width:310px;height:289px;"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+
+                    <a class="twitter-timeline" href="https://twitter.com/hashtag/Zimapan" data-widget-id="739157356127232000">Tweets sobre #Zimapan</a>
+                    <script>
+                        ! function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0],
+                                p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + "://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");
+                    </script>
+                    <div class="portfolio-caption">
+                        <h4>Bíuscanos en Twitter</h4>
+                        <p class="text-muted">No te pierdas de nada!</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -251,7 +351,8 @@
                                     <h4 class="subheading">Qué quéremos ser</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Conservar la salud del ecosistema de la Presa Hidroeléctrica Zimapán, brindando bienestar social a través de los servicios ecológicos, la educación para la conservación, la actividad física y la recreación. Además de impulsar el desarrollo turístico de ambos estados (Hidalgo y Querétaro).</p>
+                                    <p class="text-muted">Conservar la salud del ecosistema de la Presa Hidroeléctrica Zimapán, brindando bienestar social a través de los servicios ecológicos, la educación para la conservación, la actividad física y la recreación. Además de
+                                        impulsar el desarrollo turístico de ambos estados (Hidalgo y Querétaro).</p>
                                 </div>
                             </div>
                         </li>
@@ -429,16 +530,36 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-							<div class="col-md-6">
+                            <div class='col-md-3'>
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Tu mensaje, favor de especificar la fecha de tu viaje *" id="message" required data-validation-required-message="Por favor ingresa algùn mensaje."></textarea>
+                                    <div class='input-group date' id='fechaInicio'>
+                                        <input type='text' class="form-control" placeholder="Fecha de Inicio" id="start" required data-validation-required-message="Por favor ingresa la fecha de inicio de tu viaje." readonly/>
+                                        <p class="help-block text-danger"></p>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='fechaFin'>
+                                        <input type='text' class="form-control" placeholder="Fecha de Fin" id="end" required data-validation-required-message="Por favor ingresa la fecha de fin de tu viaje." readonly/>
+                                        <p class="help-block text-danger"></p>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Tu mensaje *" id="message" required data-validation-required-message="Por favor ingresa algùn mensaje."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Enviar Reservaciòn</button>
+                                <button type="submit" class="btn btn-xl">Enviar Reservación</button>
                             </div>
                         </div>
                     </form>
@@ -495,9 +616,8 @@
                             <h2>Zimapán</h2>
                             <p class="item-intro text-muted">Visitar México, es un regalo.</p>
                             <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
-                            <p>Deriva su nombre de las raíces Nahoas, cimatl, "cimate" y pan, "en o sobre". Que significa "Sobre el cimate o entre el cimate". (Cimate es una raíz que se usaba para provocar la fermentación del pulque).
-
-Esta región de Zimapán fue habitada por Otomíes y Quinamíes que tuvieron después la influencia Olmeca y Nahoa, quienes los indujeron a dejar la vida nómada para que se congregaran en poblados.</p>
+                            <p>Deriva su nombre de las raíces Nahoas, cimatl, "cimate" y pan, "en o sobre". Que significa "Sobre el cimate o entre el cimate". (Cimate es una raíz que se usaba para provocar la fermentación del pulque). Esta región de Zimapán
+                                fue habitada por Otomíes y Quinamíes que tuvieron después la influencia Olmeca y Nahoa, quienes los indujeron a dejar la vida nómada para que se congregaran en poblados.</p>
                             <p>
                                 <strong>Ser Hidalguense, es un placer, Ser Mexicano, es un HONOR ¡¡Viva Zimapan, Hidalgo, Mexico!!</strong></a>.</p>
                             <ul class="list-inline">
@@ -554,7 +674,8 @@ Esta región de Zimapán fue habitada por Otomíes y Quinamíes que tuvieron des
                             <h2>Ecoturismo</h2>
                             <p class="item-intro text-muted">Explota tus sentidos</p>
                             <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
-                            <p>Zimapán es uno de los mejores lugares para estar en contacto con la naturaleza, desde sus grandes montañas hasta los hermosos paisajes que ofrece este municipio orgullosamente hidalguense. Si quieres conocer la naturaleza te recomendamos visitar los asombrosos cañones y el increíble Parque Nacional Los Mármoles. </p>
+                            <p>Zimapán es uno de los mejores lugares para estar en contacto con la naturaleza, desde sus grandes montañas hasta los hermosos paisajes que ofrece este municipio orgullosamente hidalguense. Si quieres conocer la naturaleza te
+                                recomendamos visitar los asombrosos cañones y el increíble Parque Nacional Los Mármoles. </p>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                         </div>
                     </div>
@@ -632,7 +753,8 @@ Esta región de Zimapán fue habitada por Otomíes y Quinamíes que tuvieron des
                             <h2>Presa Hidroeléctrica</h2>
                             <p class="item-intro text-muted">Turismo mezclado con Ingeniería.</p>
                             <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
-                            <p>La Presa Hidroeléctrica de ZImapán es uno de los grandes atractivos de Hidalgo. Ubicada dentro del cañón de El Infiernillo da a la región un atractivo sin igual. Aquí puedes practicar esquí acuático, dar un paseo en lancha, acampar y practicar pesca.</p>
+                            <p>La Presa Hidroeléctrica de ZImapán es uno de los grandes atractivos de Hidalgo. Ubicada dentro del cañón de El Infiernillo da a la región un atractivo sin igual. Aquí puedes practicar esquí acuático, dar un paseo en lancha,
+                                acampar y practicar pesca.</p>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                         </div>
                     </div>
@@ -658,6 +780,36 @@ Esta región de Zimapán fue habitada por Otomíes y Quinamíes que tuvieron des
 
     <!-- Custom Theme JavaScript -->
     <script src="js/agency.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 3000 //changes the speed
+        })
+    </script>
+
+    <!--Datepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.es.js"></script>
+    <script type="text/javascript">
+        var dateToday = new Date();
+        $(function() {
+            $('#fechaInicio').datetimepicker({
+                format: 'DD-MM-YYYY'
+            });
+            $('#fechaFin').datetimepicker({
+                format: 'DD-MM-YYYY',
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#fechaInicio").on("dp.change", function(e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#fechaFin").on("dp.change", function(e) {
+                $('#fechaInicio').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>
 
 </body>
 

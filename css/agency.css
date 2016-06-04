@@ -160,11 +160,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-#services
-{
-  background-image: url(../img/wanderlust.png_);
-}
-
 header {
     background-image: url(../img/header-bg.jpg);
     background-repeat: none;
@@ -509,7 +504,7 @@ section#contact .form-group input.form-control {
     height: auto
 }
 section#contact .form-group textarea.form-control {
-    height: 236px
+    height: 150px
 }
 section#contact .form-control:focus {
     border-color: #fed136;
