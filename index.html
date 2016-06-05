@@ -402,7 +402,8 @@
                             <div class="timeline-image">
                                 <h4>Sé parte
                                     <br>de nuestra
-                                    <br>Historia!</h4>
+                                    <br>Historia!
+                                </h4>
                             </div>
                         </li>
                     </ul>
@@ -469,7 +470,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">"Queremos que cada visitante disfrute y se emocione con este proyecto de la misma manera que nosotros lo hicimos al desarrolarlo"</br>-Marian Sánchez</p>
+                    <p class="large text-muted">"Queremos que cada visitante disfrute y se emocione con este proyecto de la misma manera que nosotros lo hicimos al desarrollarlo"</br>-Marian Sánchez</p>
                 </div>
             </div>
         </div>
@@ -793,14 +794,18 @@
     <script src="js/bootstrap-datetimepicker.min.js"></script>
     <script src="js/bootstrap-datetimepicker.es.js"></script>
     <script type="text/javascript">
-        var dateToday = new Date();
+        var nowDate = new Date();
+        var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
+        var tomorrow = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate() + 1, 0, 0, 0, 0);
         $(function() {
             $('#fechaInicio').datetimepicker({
-                format: 'DD-MM-YYYY'
+                format: 'DD-MM-YYYY',
+                startDate: today
             });
             $('#fechaFin').datetimepicker({
                 format: 'DD-MM-YYYY',
-                useCurrent: false //Important! See issue #1075
+                useCurrent: false, //Important! See issue #1075
+                startDate: tomorrow
             });
             $("#fechaInicio").on("dp.change", function(e) {
                 $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
